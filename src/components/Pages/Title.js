@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function Title () {
-	const pageTitle = "Selecione o filme";
+export default function Title ({text}) {
 	return(
 		<PageTitle>
-			<p>{pageTitle}</p>
+			<p>{text}</p>
 		</PageTitle>
 	);
 }
