@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Header from "./Header/Header";
-import FirstPage from "./Pages/FirstPage";
+import FirstPage from "./Pages/FirstPage/FirstPage";
 import Sessions from "./Pages/Sessions";
 import Seats from "./Pages/Seats";
 import Success from "./Pages/Success";
@@ -11,7 +11,9 @@ export default function App () {
 	return (
 		<BrowserRouter>
 			<Header />
-			
+			<Routes>
+				<Route path="/" element={<FirstPage />} />
+			</Routes>
 		</BrowserRouter>
 	);
 }
