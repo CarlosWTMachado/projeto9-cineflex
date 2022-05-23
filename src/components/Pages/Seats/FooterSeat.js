@@ -2,13 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-export default function Footer ({posterURL, title}) {
+export default function FooterSeat ({movie, name, day}) {
+	const {weekday} = day;
+	const {title, posterURL} = movie
     return (
         <FooterSection>
             <FooterThumbnail>
                 <img className='thumbnail' src={posterURL} alt={title} width={48} height={72}/>
             </FooterThumbnail>
-			<Title>{title}</Title>
+			<Title>{title}<br/>{weekday + " - " + name}</Title>
         </FooterSection>
 
     );
@@ -22,7 +24,8 @@ const FooterSection = styled.div`
     padding-top: 15px;
     width: 100vw;
     height: 117px;
-    background-color: #9EADBA;
+    background-color: #DFE6ED;
+	border: 1px solid #9EADBA;
 `;
 
 const FooterThumbnail = styled.div`

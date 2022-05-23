@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export default function Session ({id, name}) {
     return (
 
-        <Link to={`/seats/${id}`}>
+        <Link to={`/assentos/${id}`}>
             <SessionSection>
                 <p className="session-time">{name}</p>
             </SessionSection>

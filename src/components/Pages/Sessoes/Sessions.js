@@ -6,7 +6,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import React from 'react';
 import styled from 'styled-components';
-import Footer from "../../Footer/Footer";
+import FooterSession from "./FooterSession";
 
 export default function Sessions () {
 	const {idFilme} = useParams();
@@ -30,7 +30,7 @@ export default function Sessions () {
             }
             </DaySessions>
 
-			<Footer {...sessions}/>
+			<FooterSession {...sessions}/>
 		</>
 	);
 }
