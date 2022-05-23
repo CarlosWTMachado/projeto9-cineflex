@@ -50,9 +50,17 @@ export default function Seats () {
 		console.log(form.cpf);
 		console.log(selectedSeats);
 		const promisse = axios.post('https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many', {ids: selectedSeats, name: form.name, cpf: form.cpf});
-        promisse.then(() => navigate('/sucesso'))
+        promisse.then(() => navigate('/sucesso',{state:{
+			movieTitle: sessions.movie.title,
+			movieDate: sessions.day.date,
+			movieWeekday: sessions.day.weekday,
+			assentos: selectedSeats,
+			userName: form.name, 
+			userCpf: form.cpf,
+		}}))
 		.catch(error => console.log(error));
 	}
+
 	if (sessions === null) return (<></>);
 	else
 	return(

@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useLocation } from "react-router-dom";
 
-export default function Success ({title, date, name}) {
+export default function Success (props) {
+	const location = useLocation();
+	const {movieTitle, movieDate, movieWeekday, assentos, userName, userCpf} = location.state;
     return (
         <>
             <PageTitle>
@@ -9,17 +12,17 @@ export default function Success ({title, date, name}) {
             </PageTitle>
             <InfoBlock>
                 <p>Filme e sessão</p>
-                <p>{title}</p>
-                <p>{date} {name}</p>
+                <p>{movieTitle}</p>
+                <p>{movieDate} {movieWeekday}</p>
             </InfoBlock>
             <InfoBlock>
                 <p>Ingressos</p>
-                <p>Assento(s) {}</p>
+                <p>Assento(s) {assentos}</p>
             </InfoBlock>
             <InfoBlock>
                 <p>Comprador</p>
-                <p>Nome: {}</p>
-                <p>CPF: {}</p>
+                <p>Nome: {userName}</p>
+                <p>CPF: {userCpf}</p>
             </InfoBlock>
         </>
 
