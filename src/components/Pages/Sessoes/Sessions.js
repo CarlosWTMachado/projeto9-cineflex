@@ -15,7 +15,7 @@ export default function Sessions () {
 	useEffect(() => {
 		const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/${idFilme}/showtimes`);
 		promise.then(response => setSessions(response.data))
-		.catch(console.log(error => console.log(error)));
+		.catch(error => console.log(error));
 	}, [idFilme]);
 	if (sessions === null) return (<></>);
     else

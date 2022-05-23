@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 import axios from 'axios';
 import React from 'react';
@@ -20,11 +21,12 @@ export default function Seats () {
 		name: '',
 		cpf: '',
 	});
+	let navigate = useNavigate();
 
 	useEffect (()=> {
 		const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${idSessao}/seats`);
 		promise.then(response => setSessions(response.data))
-		.catch(console.log(error => console.log(error)));
+		.catch(error => console.log(error));
 	}, [idSessao]);
 
 	function handleSelected (id) {
@@ -47,6 +49,9 @@ export default function Seats () {
 		console.log(form.name);
 		console.log(form.cpf);
 		console.log(selectedSeats);
+		const promisse = axios.post('https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many', {ids: selectedSeats, name: form.name, cpf: form.cpf});
+        promisse.then(() => navigate('/sucesso'))
+		.catch(error => console.log(error));
 	}
 	if (sessions === null) return (<></>);
 	else

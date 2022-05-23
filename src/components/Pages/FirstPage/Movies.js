@@ -13,7 +13,7 @@ export default function Movies () {
         const promise = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies");
         console.log(promise);
         promise.then(response => setMovies(response.data))
-		.catch(console.log(error => console.log(error)));
+		.catch(error => console.log(error));
     }, []);
 	return(
 		<MoviesSection>
